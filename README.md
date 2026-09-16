@@ -36,6 +36,8 @@ O sistema proposto cobre seis módulos:
 | [`docs/user-stories.md`](docs/user-stories.md) | As 10 User Stories com critérios de aceitação |
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
+| [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
+| [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Cria as labels e as 10 Issues via GitHub CLI |
 | [Issues](../../issues) | Uma Issue por User Story, com labels e prioridade |
 
 ## Rastreabilidade

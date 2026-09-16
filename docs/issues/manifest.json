@@ -1,0 +1,142 @@
+[
+  {
+    "code": "US-01",
+    "short": "Cadastro de aluno com plano",
+    "title": "[US-01] Como recepcionista, quero cadastrar um novo aluno com seu plano",
+    "perfil": "recepção",
+    "modulo": "cadastro",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: recepção",
+      "módulo: cadastro"
+    ]
+  },
+  {
+    "code": "US-02",
+    "short": "Check-in na entrada",
+    "title": "[US-02] Como aluno, quero fazer check-in na entrada pelo QR Code ou matrícula",
+    "perfil": "aluno",
+    "modulo": "acesso",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: aluno",
+      "módulo: acesso"
+    ]
+  },
+  {
+    "code": "US-03",
+    "short": "Montagem da ficha de treino",
+    "title": "[US-03] Como instrutor, quero montar a ficha de treino do aluno",
+    "perfil": "instrutor",
+    "modulo": "treino",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: instrutor",
+      "módulo: treino"
+    ]
+  },
+  {
+    "code": "US-04",
+    "short": "Consulta da ficha no app",
+    "title": "[US-04] Como aluno, quero consultar minha ficha de treino no aplicativo",
+    "perfil": "aluno",
+    "modulo": "treino",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: aluno",
+      "módulo: treino"
+    ]
+  },
+  {
+    "code": "US-05",
+    "short": "Registro de execução do treino",
+    "title": "[US-05] Como aluno, quero registrar os exercícios executados e a carga usada",
+    "perfil": "aluno",
+    "modulo": "treino",
+    "prioridade": "Média",
+    "labels": [
+      "user-story",
+      "prioridade: média",
+      "perfil: aluno",
+      "módulo: treino"
+    ]
+  },
+  {
+    "code": "US-06",
+    "short": "Avaliação física periódica",
+    "title": "[US-06] Como instrutor, quero registrar a avaliação física periódica do aluno",
+    "perfil": "instrutor",
+    "modulo": "avaliação",
+    "prioridade": "Média",
+    "labels": [
+      "user-story",
+      "prioridade: média",
+      "perfil: instrutor",
+      "módulo: avaliação"
+    ]
+  },
+  {
+    "code": "US-07",
+    "short": "Renovação de plano e registro de pagamento",
+    "title": "[US-07] Como recepcionista, quero renovar o plano e registrar o pagamento",
+    "perfil": "recepção",
+    "modulo": "financeiro",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: recepção",
+      "módulo: financeiro"
+    ]
+  },
+  {
+    "code": "US-08",
+    "short": "Relatório de frequência e ocupação",
+    "title": "[US-08] Como gerente, quero ver relatório de frequência e ocupação por horário",
+    "perfil": "gerente",
+    "modulo": "relatórios",
+    "prioridade": "Média",
+    "labels": [
+      "user-story",
+      "prioridade: média",
+      "perfil: gerente",
+      "módulo: relatórios"
+    ]
+  },
+  {
+    "code": "US-09",
+    "short": "Painel de inadimplência e bloqueio de acesso",
+    "title": "[US-09] Como gerente, quero acompanhar inadimplência com bloqueio automático de acesso",
+    "perfil": "gerente",
+    "modulo": "financeiro",
+    "prioridade": "Alta",
+    "labels": [
+      "user-story",
+      "prioridade: alta",
+      "perfil: gerente",
+      "módulo: financeiro"
+    ]
+  },
+  {
+    "code": "US-10",
+    "short": "Agendamento de aula coletiva",
+    "title": "[US-10] Como aluno, quero reservar minha vaga nas aulas coletivas",
+    "perfil": "aluno",
+    "modulo": "agendamento",
+    "prioridade": "Média",
+    "labels": [
+      "user-story",
+      "prioridade: média",
+      "perfil: aluno",
+      "módulo: agendamento"
+    ]
+  }
+]
