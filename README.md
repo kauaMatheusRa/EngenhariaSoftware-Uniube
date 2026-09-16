@@ -37,7 +37,8 @@ O sistema proposto cobre seis módulos:
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
 | [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
-| [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Cria as labels e as 10 Issues via GitHub CLI |
+| [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Recria labels e Issues em outro repositório, via GitHub CLI |
+| [`scripts/aplicar-cores-labels.sh`](scripts/aplicar-cores-labels.sh) | Padroniza as cores das labels |
 | [Issues](../../issues) | Uma Issue por User Story, com labels e prioridade |
 
 ## Rastreabilidade
@@ -62,3 +63,14 @@ Assim é possível partir de qualquer commit e chegar à história que o origino
 
 A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera),
 `média` = *Should have* (entra na segunda entrega), `baixa` = *Could have*.
+
+## Situação da entrega
+
+| Item | Situação |
+| --- | --- |
+| Domínio definido | ✅ Academia |
+| Perfis de usuário | ✅ 4 perfis |
+| User Stories | ✅ 10 histórias (mínimo era 8) |
+| Critérios de aceitação | ✅ 43 critérios, no mínimo 4 por história |
+| Issues com labels e prioridade | ✅ [#1 a #10](../../issues) |
+| GitHub Project | ver [`docs/project-setup.md`](docs/project-setup.md) |

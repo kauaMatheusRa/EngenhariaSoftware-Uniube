@@ -23,6 +23,6 @@ labels: user-story
 
 ## Rastreabilidade
 
-- História: `US-XX` — ver [`docs/user-stories.md`](../../docs/user-stories.md)
+- História: `US-XX` — ver [`docs/user-stories.md`](../../blob/HEAD/docs/user-stories.md)
 - Módulo: <cadastro | acesso | treino | avaliação | financeiro | agendamento | relatórios>
 - Prioridade: <Alta | Média | Baixa>

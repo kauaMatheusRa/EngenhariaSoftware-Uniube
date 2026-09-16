@@ -1,21 +1,21 @@
 # Backlog — matriz de rastreabilidade
 
 Uma linha por User Story, ligando história → Issue → labels → prioridade → iteração.
-Os números de Issue abaixo (`#1`…`#10`) correspondem à ordem de criação pelo script
-[`scripts/criar-issues.sh`](../scripts/criar-issues.sh) em um repositório sem Issues anteriores.
+As dez Issues estão publicadas no repositório ([#1 a #10](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues)), com labels de
+tipo, perfil, módulo e prioridade aplicadas.
 
 | ID | História (resumo) | Issue | Perfil | Módulo | Prioridade | Iteração |
 | --- | --- | --- | --- | --- | --- | --- |
-| US-01 | Cadastro de aluno com plano | [#1](../../issues/1) | recepção | cadastro | Alta | 1 |
-| US-02 | Check-in na entrada | [#2](../../issues/2) | aluno | acesso | Alta | 1 |
-| US-03 | Montagem da ficha de treino | [#3](../../issues/3) | instrutor | treino | Alta | 1 |
-| US-04 | Consulta da ficha no app | [#4](../../issues/4) | aluno | treino | Alta | 1 |
-| US-05 | Registro de execução do treino | [#5](../../issues/5) | aluno | treino | Média | 2 |
-| US-06 | Avaliação física periódica | [#6](../../issues/6) | instrutor | avaliação | Média | 2 |
-| US-07 | Renovação de plano e pagamento | [#7](../../issues/7) | recepção | financeiro | Alta | 1 |
-| US-08 | Relatório de frequência e ocupação | [#8](../../issues/8) | gerente | relatórios | Média | 2 |
-| US-09 | Inadimplência e bloqueio de acesso | [#9](../../issues/9) | gerente | financeiro | Alta | 1 |
-| US-10 | Agendamento de aula coletiva | [#10](../../issues/10) | aluno | agendamento | Média | 2 |
+| US-01 | Cadastro de aluno com plano | [#1](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/1) | recepção | cadastro | Alta | 1 |
+| US-02 | Check-in na entrada | [#2](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/2) | aluno | acesso | Alta | 1 |
+| US-03 | Montagem da ficha de treino | [#3](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/3) | instrutor | treino | Alta | 1 |
+| US-04 | Consulta da ficha no app | [#4](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/4) | aluno | treino | Alta | 1 |
+| US-05 | Registro de execução do treino | [#5](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/5) | aluno | treino | Média | 2 |
+| US-06 | Avaliação física periódica | [#6](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/6) | instrutor | avaliação | Média | 2 |
+| US-07 | Renovação de plano e pagamento | [#7](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/7) | recepção | financeiro | Alta | 1 |
+| US-08 | Relatório de frequência e ocupação | [#8](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/8) | gerente | relatórios | Média | 2 |
+| US-09 | Inadimplência e bloqueio de acesso | [#9](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/9) | gerente | financeiro | Alta | 1 |
+| US-10 | Agendamento de aula coletiva | [#10](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/10) | aluno | agendamento | Média | 2 |
 
 ## Cobertura por perfil
 

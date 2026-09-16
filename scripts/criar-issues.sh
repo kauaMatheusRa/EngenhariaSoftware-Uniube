@@ -8,8 +8,10 @@
 #
 # Uso:  bash scripts/criar-issues.sh
 #
-# O script é idempotente nas labels (ignora as que já existem), mas NÃO nas Issues:
-# rodar duas vezes cria Issues duplicadas.
+# ATENÇÃO: as 10 Issues deste backlog JÁ FORAM CRIADAS (#1 a #10). Este script existe
+# como registro do processo e para recriar o backlog em outro repositório (um fork da
+# equipe, por exemplo). Rodá-lo neste repositório criaria Issues duplicadas.
+# Para apenas corrigir as cores das labels, use scripts/aplicar-cores-labels.sh.
 
 set -euo pipefail
 
