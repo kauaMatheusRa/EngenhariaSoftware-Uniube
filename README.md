@@ -36,6 +36,7 @@ O sistema proposto cobre seis módulos:
 | [`docs/user-stories.md`](docs/user-stories.md) | As 10 User Stories com critérios de aceitação |
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
+| [`docs/uml/`](docs/uml) | Diagramas de casos de uso e de classes (SVG + PNG) e a modelagem |
 | [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
 | [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Recria labels e Issues em outro repositório, via GitHub CLI |
 | [`scripts/aplicar-cores-labels.sh`](scripts/aplicar-cores-labels.sh) | Padroniza as cores das labels |
@@ -47,7 +48,8 @@ Cada User Story tem um identificador estável (`US-01` … `US-10`) que aparece:
 
 1. no título da Issue — `[US-01] Como recepcionista, quero cadastrar um novo aluno...`;
 2. na matriz de `docs/backlog.md`, ligando a história à Issue e ao módulo;
-3. nas mensagens de commit e nos Pull Requests que implementarem a história,
+3. nos diagramas UML de `docs/uml/`, que mapeiam cada história ao seu caso de uso;
+4. nas mensagens de commit e nos Pull Requests que implementarem a história,
    no formato `US-01: descrição` + `Closes #N`.
 
 Assim é possível partir de qualquer commit e chegar à história que o originou — e vice-versa.
@@ -74,3 +76,5 @@ A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera)
 | Critérios de aceitação | ✅ 43 critérios, no mínimo 4 por história |
 | Issues com labels e prioridade | ✅ [#1 a #10](../../issues) |
 | GitHub Project | ver [`docs/project-setup.md`](docs/project-setup.md) |
+| Diagrama de casos de uso | ✅ [`docs/uml/casos-de-uso.png`](docs/uml/casos-de-uso.png) |
+| Diagrama de classes | ✅ [`docs/uml/classes.png`](docs/uml/classes.png) |
