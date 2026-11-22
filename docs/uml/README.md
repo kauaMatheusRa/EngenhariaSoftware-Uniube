@@ -4,8 +4,8 @@ Prática guiada da Aula 5 (UML prática) — Engenharia de Software, Uniube.
 **Objetivo:** modelar o comportamento externo e a estrutura essencial do sistema da academia,
 partindo do backlog já construído.
 
-Os diagramas são versionados em dois formatos: `.svg` (fonte vetorial, editável) e `.png`
-(exportação para apresentação e impressão).
+Os diagramas são versionados em três formatos: `.svg` (fonte vetorial, editável), `.png`
+(visualização no GitHub e em apresentação) e `.pdf` (A4 paisagem, para anexo e impressão).
 
 ---
 
@@ -69,7 +69,7 @@ com papel.
 
 ![Diagrama de casos de uso](casos-de-uso.png)
 
-Arquivos: [`casos-de-uso.svg`](casos-de-uso.svg) · [`casos-de-uso.png`](casos-de-uso.png)
+Arquivos: [`casos-de-uso.pdf`](casos-de-uso.pdf) · [`casos-de-uso.png`](casos-de-uso.png) · [`casos-de-uso.svg`](casos-de-uso.svg)
 
 ### Os relacionamentos, e por que cada um
 
@@ -124,7 +124,7 @@ Nem todo substantivo vira classe. O que foi descartado e por quê:
 
 ![Diagrama de classes](classes.png)
 
-Arquivos: [`classes.svg`](classes.svg) · [`classes.png`](classes.png)
+Arquivos: [`classes.pdf`](classes.pdf) · [`classes.png`](classes.png) · [`classes.svg`](classes.svg)
 
 ### Multiplicidades e o critério de aceitação que as justifica
 
@@ -170,5 +170,6 @@ tecnologia de persistência, formato do relatório e detalhes do protocolo com a
 ## Como os arquivos foram gerados
 
 Os dois diagramas são SVG escritos à mão (sem ferramenta proprietária), o que os torna
-versionáveis e revisáveis por diff no próprio repositório. O PNG é a rasterização do SVG,
-em escala 2× para leitura em projetor e impressão.
+versionáveis e revisáveis por diff no próprio repositório. O PNG é a rasterização do SVG em
+escala 2×, para leitura em projetor. O PDF é gerado do mesmo SVG em A4 paisagem e preserva o
+vetor — dá para ampliar sem perder nitidez e o texto continua selecionável.

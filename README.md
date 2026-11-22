@@ -36,7 +36,7 @@ O sistema proposto cobre seis módulos:
 | [`docs/user-stories.md`](docs/user-stories.md) | As 10 User Stories com critérios de aceitação |
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
-| [`docs/uml/`](docs/uml) | Diagramas de casos de uso e de classes (SVG + PNG) e a modelagem |
+| [`docs/uml/`](docs/uml) | Diagramas de casos de uso e de classes (SVG + PNG + PDF) e a modelagem |
 | [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
 | [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Recria labels e Issues em outro repositório, via GitHub CLI |
 | [`scripts/aplicar-cores-labels.sh`](scripts/aplicar-cores-labels.sh) | Padroniza as cores das labels |
@@ -76,5 +76,5 @@ A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera)
 | Critérios de aceitação | ✅ 43 critérios, no mínimo 4 por história |
 | Issues com labels e prioridade | ✅ [#1 a #10](../../issues) |
 | GitHub Project | ver [`docs/project-setup.md`](docs/project-setup.md) |
-| Diagrama de casos de uso | ✅ [`docs/uml/casos-de-uso.png`](docs/uml/casos-de-uso.png) |
-| Diagrama de classes | ✅ [`docs/uml/classes.png`](docs/uml/classes.png) |
+| Diagrama de casos de uso | ✅ [PNG](docs/uml/casos-de-uso.png) · [PDF](docs/uml/casos-de-uso.pdf) · [SVG](docs/uml/casos-de-uso.svg) |
+| Diagrama de classes | ✅ [PNG](docs/uml/classes.png) · [PDF](docs/uml/classes.pdf) · [SVG](docs/uml/classes.svg) |
