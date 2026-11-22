@@ -139,12 +139,38 @@ HTTP 422
 ## Testes
 
 ```
-AlunoServiceTest ......... 4 testes — regras de negócio, sem subir servidor nem banco
-AlunoControllerTest ...... 3 testes — contrato HTTP, com o service mockado
-AcademiaApiApplicationTests  1 teste — as camadas se conectam de verdade
-                             8 testes, 0 falhas
+AlunoTest ..................... 9  regra de idade no dominio, sem mock e sem Spring
+AlunoServiceTest .............. 11 caminho feliz, fronteiras e erros (Clock fixo)
+AlunoControllerTest ...........  3 contrato HTTP, com o service mockado
+AcademiaApiApplicationTests ...  1 as camadas se conectam de verdade
+                                24 testes, 0 falhas
 ```
 
-O `AlunoControllerTest` verifica algo específico da arquitetura: quando o corpo chega
-inválido, o service **não é chamado** (`verify(service, never())`). Se alguém mover a
-validação para dentro do Controller, ou a regra de CPF para fora do service, o teste quebra.
+```bash
+cd academia-api && mvn test
+```
+
+Os cenarios foram listados **antes** de escrever qualquer teste, em
+[`docs/cenarios-de-teste.md`](../docs/cenarios-de-teste.md), e cada teste segue
+Arrange-Act-Assert explicito.
+
+### Dois testes que protegem a arquitetura
+
+`AlunoControllerTest` verifica com `verify(service, never())` que entrada invalida **nao
+chega ao service**. `AlunoServiceTest.cpfDuplicado` verifica que, com CPF repetido, nem o
+plano chega a ser consultado. Se alguem mover a validacao de camada, os testes quebram.
+
+### Uma refatoracao que veio dos testes
+
+Os cenarios de fronteira ("faz 18 anos exatamente hoje", "faz 18 anos amanha") nao eram
+testaveis de forma repetivel: `Aluno.isMenorDeIdade()` lia `LocalDate.now()` por dentro, e
+o resultado dependeria do dia em que a suite rodasse.
+
+| Antes | Depois |
+| --- | --- |
+| `isMenorDeIdade()` | `isMenorDeIdade(LocalDate hoje)` |
+| `AlunoService` chamava `LocalDate.now()` | recebe um `java.time.Clock` injetado |
+
+Em producao o Spring injeta `Clock.systemDefaultZone()` e o comportamento e identico; no
+teste, um `Clock.fixed` deixa as datas sob controle. O dominio tambem deixou de depender do
+relogio do sistema, que e um recurso externo como banco ou rede.

@@ -12,6 +12,7 @@ import br.uniube.academia.exception.PlanoNaoEncontradoException;
 import br.uniube.academia.repository.AlunoRepository;
 import br.uniube.academia.repository.MatriculaRepository;
 import br.uniube.academia.repository.PlanoRepository;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.Year;
 import org.springframework.stereotype.Service;
@@ -32,15 +33,20 @@ public class AlunoService {
     private final MatriculaRepository matriculaRepository;
     private final AlunoMapper mapper;
 
+    /** Injetado para que as datas fiquem sob controle no teste. */
+    private final Clock clock;
+
     public AlunoService(
             AlunoRepository alunoRepository,
             PlanoRepository planoRepository,
             MatriculaRepository matriculaRepository,
-            AlunoMapper mapper) {
+            AlunoMapper mapper,
+            Clock clock) {
         this.alunoRepository = alunoRepository;
         this.planoRepository = planoRepository;
         this.matriculaRepository = matriculaRepository;
         this.mapper = mapper;
+        this.clock = clock;
     }
 
     @Transactional
@@ -53,11 +59,13 @@ public class AlunoService {
                 .findById(dto.planoId())
                 .orElseThrow(() -> new PlanoNaoEncontradoException(dto.planoId()));
 
+        LocalDate hoje = LocalDate.now(clock);
+
         Aluno aluno = mapper.toEntity(dto, gerarMatricula());
-        aluno.informarResponsavel(dto.responsavelNome(), dto.responsavelCpf());
+        aluno.informarResponsavel(dto.responsavelNome(), dto.responsavelCpf(), hoje);
 
         Aluno salvo = alunoRepository.save(aluno);
-        Matricula matricula = matriculaRepository.save(new Matricula(salvo, plano, LocalDate.now()));
+        Matricula matricula = matriculaRepository.save(new Matricula(salvo, plano, hoje));
 
         return mapper.toResponse(matricula);
     }
@@ -72,6 +80,6 @@ public class AlunoService {
 
     /** Criterio 1 da US-01: cada aluno recebe um numero de matricula unico. */
     private String gerarMatricula() {
-        return "%d%05d".formatted(Year.now().getValue(), alunoRepository.count() + 1);
+        return "%d%05d".formatted(Year.now(clock).getValue(), alunoRepository.count() + 1);
     }
 }
