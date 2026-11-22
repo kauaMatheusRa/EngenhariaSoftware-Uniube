@@ -5,7 +5,8 @@ Prática guiada da Aula 5 (UML prática) — Engenharia de Software, Uniube.
 partindo do backlog já construído.
 
 Os diagramas são versionados em três formatos: `.svg` (fonte vetorial, editável), `.png`
-(visualização no GitHub e em apresentação) e `.pdf` (A4 paisagem, para anexo e impressão).
+(visualização no GitHub e em apresentação) e um PDF único de duas páginas,
+[`diagramas-uml.pdf`](diagramas-uml.pdf) (A4 paisagem), que é o arquivo da entrega.
 
 ---
 
@@ -69,7 +70,7 @@ com papel.
 
 ![Diagrama de casos de uso](casos-de-uso.png)
 
-Arquivos: [`casos-de-uso.pdf`](casos-de-uso.pdf) · [`casos-de-uso.png`](casos-de-uso.png) · [`casos-de-uso.svg`](casos-de-uso.svg)
+Arquivos: [`casos-de-uso.png`](casos-de-uso.png) · [`casos-de-uso.svg`](casos-de-uso.svg) · página 1 de [`diagramas-uml.pdf`](diagramas-uml.pdf)
 
 ### Os relacionamentos, e por que cada um
 
@@ -124,7 +125,7 @@ Nem todo substantivo vira classe. O que foi descartado e por quê:
 
 ![Diagrama de classes](classes.png)
 
-Arquivos: [`classes.pdf`](classes.pdf) · [`classes.png`](classes.png) · [`classes.svg`](classes.svg)
+Arquivos: [`classes.png`](classes.png) · [`classes.svg`](classes.svg) · página 2 de [`diagramas-uml.pdf`](diagramas-uml.pdf)
 
 ### Multiplicidades e o critério de aceitação que as justifica
 
@@ -171,5 +172,6 @@ tecnologia de persistência, formato do relatório e detalhes do protocolo com a
 
 Os dois diagramas são SVG escritos à mão (sem ferramenta proprietária), o que os torna
 versionáveis e revisáveis por diff no próprio repositório. O PNG é a rasterização do SVG em
-escala 2×, para leitura em projetor. O PDF é gerado do mesmo SVG em A4 paisagem e preserva o
-vetor — dá para ampliar sem perder nitidez e o texto continua selecionável.
+escala 2×, para leitura em projetor. O PDF reúne os dois diagramas em duas páginas A4
+paisagem, geradas dos mesmos SVGs: preserva o vetor, então dá para ampliar sem perder nitidez
+e o texto continua selecionável.

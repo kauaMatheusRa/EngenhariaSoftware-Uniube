@@ -76,5 +76,6 @@ A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera)
 | Critérios de aceitação | ✅ 43 critérios, no mínimo 4 por história |
 | Issues com labels e prioridade | ✅ [#1 a #10](../../issues) |
 | GitHub Project | ver [`docs/project-setup.md`](docs/project-setup.md) |
-| Diagrama de casos de uso | ✅ [PNG](docs/uml/casos-de-uso.png) · [PDF](docs/uml/casos-de-uso.pdf) · [SVG](docs/uml/casos-de-uso.svg) |
-| Diagrama de classes | ✅ [PNG](docs/uml/classes.png) · [PDF](docs/uml/classes.pdf) · [SVG](docs/uml/classes.svg) |
+| Diagrama de casos de uso | ✅ [PNG](docs/uml/casos-de-uso.png) · [SVG](docs/uml/casos-de-uso.svg) |
+| Diagrama de classes | ✅ [PNG](docs/uml/classes.png) · [SVG](docs/uml/classes.svg) |
+| PDF da entrega (os dois diagramas) | ✅ [`docs/uml/diagramas-uml.pdf`](docs/uml/diagramas-uml.pdf) |
