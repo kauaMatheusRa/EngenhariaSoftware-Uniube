@@ -59,9 +59,14 @@ public class Aluno {
         this.status = StatusAluno.ATIVO;
     }
 
-    /** Criterio 4 da US-01: menor de 18 anos so e cadastrado com responsavel informado. */
-    public void informarResponsavel(String responsavelNome, String responsavelCpf) {
-        if (!isMenorDeIdade()) {
+    /**
+     * Criterio 4 da US-01: menor de 18 anos so e cadastrado com responsavel informado.
+     *
+     * <p>A data de hoje chega por parametro em vez de vir de LocalDate.now(): sem isso o
+     * cenario de fronteira "faz 18 anos exatamente hoje" nao seria repetivel no teste.
+     */
+    public void informarResponsavel(String responsavelNome, String responsavelCpf, LocalDate hoje) {
+        if (!isMenorDeIdade(hoje)) {
             this.responsavelNome = responsavelNome;
             this.responsavelCpf = responsavelCpf;
             return;
@@ -73,8 +78,8 @@ public class Aluno {
         this.responsavelCpf = responsavelCpf;
     }
 
-    public boolean isMenorDeIdade() {
-        return Period.between(dataNascimento, LocalDate.now()).getYears() < 18;
+    public boolean isMenorDeIdade(LocalDate hoje) {
+        return Period.between(dataNascimento, hoje).getYears() < 18;
     }
 
     private static boolean vazio(String valor) {
