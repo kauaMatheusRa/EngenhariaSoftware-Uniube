@@ -37,6 +37,7 @@ O sistema proposto cobre seis módulos:
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
 | [`docs/uml/`](docs/uml) | Diagramas de casos de uso e de classes (SVG + PNG + PDF) e a modelagem |
+| [`academia-api/`](academia-api) | Implementação em camadas da US-01 (Spring Boot) |
 | [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
 | [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Recria labels e Issues em outro repositório, via GitHub CLI |
 | [`scripts/aplicar-cores-labels.sh`](scripts/aplicar-cores-labels.sh) | Padroniza as cores das labels |
@@ -79,3 +80,27 @@ A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera)
 | Diagrama de casos de uso | ✅ [PNG](docs/uml/casos-de-uso.png) · [SVG](docs/uml/casos-de-uso.svg) |
 | Diagrama de classes | ✅ [PNG](docs/uml/classes.png) · [SVG](docs/uml/classes.svg) |
 | PDF da entrega (os dois diagramas) | ✅ [`docs/uml/diagramas-uml.pdf`](docs/uml/diagramas-uml.pdf) |
+| Implementação em camadas (US-01) | ✅ [`academia-api/`](academia-api) — 8 testes passando |
+
+## Arquitetura da implementação
+
+A US-01 (cadastro de aluno) está implementada em `academia-api/`, separada em camadas:
+
+![Arquitetura em camadas](docs/uml/arquitetura-camadas.png)
+
+```
+Cliente HTTP  →  Controller  →  Service  →  Repository  →  Banco (H2)
+                     ↑                                        │
+                     └──────────  AlunoResponse (DTO)  ───────┘
+```
+
+| Camada | Responsabilidade | Evitar |
+| --- | --- | --- |
+| `controller/` | Receber a requisição e devolver a resposta | Regra de negócio |
+| `service/` | Orquestrar o caso de uso e as regras | Detalhes de HTTP/SQL |
+| `domain/` | Representar conceitos e regras próprias do objeto | Conhecer a UI |
+| `repository/` | Acesso a dados | Regra de negócio |
+
+Cada critério de aceitação da história foi para a camada que lhe cabe — formato no DTO,
+unicidade de CPF no service, regra de menoridade no domínio. O detalhamento está em
+[`academia-api/README.md`](academia-api/README.md).

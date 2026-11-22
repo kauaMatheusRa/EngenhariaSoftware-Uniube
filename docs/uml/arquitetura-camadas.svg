@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="900" viewBox="0 0 1460 900" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="seta" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto"><path d="M0,0 L11,4.5 L0,9 z" fill="#5B7A99"/></marker><marker id="setaVolta" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto"><path d="M0,0 L11,4.5 L0,9 z" fill="#9CA3AF"/></marker></defs>
+<rect width="1460" height="900" fill="#FFFFFF"/>
+<text x="730.0" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#1F2937">Arquitetura em camadas — Cadastro de aluno (US-01)</text>
+<text x="730.0" y="66" text-anchor="middle" font-size="14" fill="#6B7280">Cada camada faz uma coisa só; a seta mostra quem pode chamar quem</text>
+<rect x="50" y="110" width="252" height="150" rx="8" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+<text x="176.0" y="142" text-anchor="middle" font-size="17" font-weight="bold" fill="#1F2937">Cliente HTTP</text>
+<text x="176.0" y="170" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">POST /alunos</text>
+<text x="176.0" y="190" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">JSON de entrada</text>
+<rect x="332" y="110" width="252" height="150" rx="8" fill="#EAF2FB" stroke="#2F74C0" stroke-width="2"/>
+<text x="458.0" y="142" text-anchor="middle" font-size="17" font-weight="bold" fill="#1F2937">Controller</text>
+<text x="458.0" y="170" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">AlunoController</text>
+<text x="458.0" y="308" text-anchor="middle" font-size="13" fill="#15803D">✓ recebe a requisição,</text>
+<text x="458.0" y="325" text-anchor="middle" font-size="13" fill="#15803D">devolve a resposta</text>
+<text x="458.0" y="352" text-anchor="middle" font-size="13" fill="#B91C1C">✗ nenhuma regra</text>
+<text x="458.0" y="369" text-anchor="middle" font-size="13" fill="#B91C1C">de negócio</text>
+<rect x="614" y="110" width="252" height="150" rx="8" fill="#EAF2FB" stroke="#2F74C0" stroke-width="2"/>
+<text x="740.0" y="142" text-anchor="middle" font-size="17" font-weight="bold" fill="#1F2937">Service</text>
+<text x="740.0" y="170" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">AlunoService</text>
+<text x="740.0" y="308" text-anchor="middle" font-size="13" fill="#15803D">✓ orquestra o caso de uso</text>
+<text x="740.0" y="325" text-anchor="middle" font-size="13" fill="#15803D">e as regras</text>
+<text x="740.0" y="352" text-anchor="middle" font-size="13" fill="#B91C1C">✗ nada de HTTP</text>
+<text x="740.0" y="369" text-anchor="middle" font-size="13" fill="#B91C1C">ou SQL</text>
+<rect x="896" y="110" width="252" height="150" rx="8" fill="#EAF2FB" stroke="#2F74C0" stroke-width="2"/>
+<text x="1022.0" y="142" text-anchor="middle" font-size="17" font-weight="bold" fill="#1F2937">Repository</text>
+<text x="1022.0" y="170" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">AlunoRepository</text>
+<text x="1022.0" y="190" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">PlanoRepository</text>
+<text x="1022.0" y="210" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">MatriculaRepository</text>
+<text x="1022.0" y="308" text-anchor="middle" font-size="13" fill="#15803D">✓ acesso a dados</text>
+<text x="1022.0" y="335" text-anchor="middle" font-size="13" fill="#B91C1C">✗ nenhuma regra</text>
+<text x="1022.0" y="352" text-anchor="middle" font-size="13" fill="#B91C1C">de negócio</text>
+<rect x="1178" y="110" width="252" height="150" rx="8" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+<text x="1304.0" y="142" text-anchor="middle" font-size="17" font-weight="bold" fill="#1F2937">Banco</text>
+<text x="1304.0" y="170" text-anchor="middle" font-size="13.5" fill="#374151" font-family="monospace">H2 em memória</text>
+<line x1="306" y1="170" x2="326" y2="170" stroke="#5B7A99" stroke-width="2" marker-end="url(#seta)"/>
+<line x1="588" y1="170" x2="608" y2="170" stroke="#5B7A99" stroke-width="2" marker-end="url(#seta)"/>
+<line x1="870" y1="170" x2="890" y2="170" stroke="#5B7A99" stroke-width="2" marker-end="url(#seta)"/>
+<line x1="1152" y1="170" x2="1172" y2="170" stroke="#5B7A99" stroke-width="2" marker-end="url(#seta)"/>
+<path d="M1304.0,264 L1304.0,280 L458.0,280 L458.0,264" fill="none" stroke="#9CA3AF" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#setaVolta)"/>
+<text x="1304.0" y="300" text-anchor="middle" font-size="12.5" fill="#9CA3AF">resposta: AlunoResponse (DTO)</text>
+<rect x="50" y="420" width="534" height="108" rx="8" fill="#FFFFFF" stroke="#2F74C0" stroke-width="1.6" stroke-dasharray="6,4"/>
+<text x="66" y="446" font-size="15" font-weight="bold" fill="#1F2937">dto/ — contratos</text>
+<text x="66" y="470" font-size="13" fill="#374151" font-family="monospace">NovoAlunoRequest  (valida formato na entrada)</text>
+<text x="66" y="490" font-size="13" fill="#374151" font-family="monospace">AlunoResponse  (ficha devolvida)</text>
+<text x="66" y="510" font-size="13" fill="#374151" font-family="monospace">AlunoMapper  (traduz DTO ↔ domínio)</text>
+<rect x="614" y="420" width="534" height="108" rx="8" fill="#FFFFFF" stroke="#2F74C0" stroke-width="1.6" stroke-dasharray="6,4"/>
+<text x="630" y="446" font-size="15" font-weight="bold" fill="#1F2937">domain/ — conceitos e regras próprias</text>
+<text x="630" y="470" font-size="13" fill="#374151" font-family="monospace">Aluno  (isMenorDeIdade, informarResponsavel)</text>
+<text x="630" y="490" font-size="13" fill="#374151" font-family="monospace">Matricula  (dataInicio, diaVencimento)</text>
+<text x="630" y="510" font-size="13" fill="#374151" font-family="monospace">Plano, StatusAluno</text>
+<text x="50" y="582" font-size="16" font-weight="bold" fill="#1F2937">Onde cada critério de aceitação da US-01 é verificado</text>
+<line x1="50" y1="596" x2="1230" y2="596" stroke="#E5E7EB" stroke-width="1.5"/>
+<text x="50" y="624" font-size="13.5" fill="#374151">3. campo obrigatório em branco</text>
+<text x="480" y="624" font-size="13.5" fill="#2F74C0" font-family="monospace">dto/ NovoAlunoRequest</text>
+<text x="910" y="624" font-size="13.5" fill="#374151" font-family="monospace">@NotBlank → 400</text>
+<line x1="50" y1="634" x2="1230" y2="634" stroke="#F3F4F6" stroke-width="1"/>
+<text x="50" y="654" font-size="13.5" fill="#374151">2. CPF já cadastrado</text>
+<text x="480" y="654" font-size="13.5" fill="#2F74C0" font-family="monospace">service/ AlunoService</text>
+<text x="910" y="654" font-size="13.5" fill="#374151" font-family="monospace">existsByCpf → 409</text>
+<line x1="50" y1="664" x2="1230" y2="664" stroke="#F3F4F6" stroke-width="1"/>
+<text x="50" y="684" font-size="13.5" fill="#374151">4. menor de 18 sem responsável</text>
+<text x="480" y="684" font-size="13.5" fill="#2F74C0" font-family="monospace">domain/ Aluno</text>
+<text x="910" y="684" font-size="13.5" fill="#374151" font-family="monospace">informarResponsavel → 422</text>
+<line x1="50" y1="694" x2="1230" y2="694" stroke="#F3F4F6" stroke-width="1"/>
+<text x="50" y="714" font-size="13.5" fill="#374151">1. matrícula única e status ATIVO</text>
+<text x="480" y="714" font-size="13.5" fill="#2F74C0" font-family="monospace">service/ + domain/</text>
+<text x="910" y="714" font-size="13.5" fill="#374151" font-family="monospace">201 Created</text>
+<line x1="50" y1="724" x2="1230" y2="724" stroke="#F3F4F6" stroke-width="1"/>
+<text x="50" y="744" font-size="13.5" fill="#374151">5. ficha com plano e vencimento</text>
+<text x="480" y="744" font-size="13.5" fill="#2F74C0" font-family="monospace">domain/ Matricula → dto/</text>
+<text x="910" y="744" font-size="13.5" fill="#374151" font-family="monospace">200 OK</text>
+<line x1="50" y1="754" x2="1230" y2="754" stroke="#F3F4F6" stroke-width="1"/>
+<text x="50" y="872" font-size="13" fill="#6B7280">Regra do desenho: a seta só aponta para a direita. O Controller não enxerga o Repository, e o domínio não conhece HTTP.</text>
+</svg>
