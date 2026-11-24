@@ -1,7 +1,10 @@
 # Exercícios da Aula 11 — Design Patterns
 
 Dois exercícios propostos nos slides da aula: classe abstrata (slide 26) e padrão DAO
-(slide 27). São exercícios independentes do projeto da academia, por isso ficam em pasta
+(slide 27).
+
+📄 **[`exercicios-aula-11.pdf`](exercicios-aula-11.pdf)** — documento de 11 páginas com
+enunciado, resolução comentada, classe de teste e saída de execução dos dois exercícios. São exercícios independentes do projeto da academia, por isso ficam em pasta
 separada e sem framework — Java puro, compilável com `javac`.
 
 > **Sobre os nomes dos métodos:** o enunciado escreve `exibir_info()` e `calcular_custo()`
