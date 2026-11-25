@@ -42,9 +42,41 @@ public class ApiExceptionHandler {
                         HttpStatus.UNPROCESSABLE_ENTITY.value(), "Responsavel obrigatorio", ex.getMessage()));
     }
 
-    @ExceptionHandler({PlanoNaoEncontradoException.class, AlunoNaoEncontradoException.class})
+    @ExceptionHandler({
+        PlanoNaoEncontradoException.class,
+        AlunoNaoEncontradoException.class,
+        RecursoNaoEncontradoException.class
+    })
     public ResponseEntity<ErroResposta> naoEncontrado(RuntimeException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ErroResposta.de(HttpStatus.NOT_FOUND.value(), "Nao encontrado", ex.getMessage()));
+    }
+
+    /** US-04, criterio 3: o app mostra orientacao em vez de tela vazia. */
+    @ExceptionHandler(FichaNaoEncontradaException.class)
+    public ResponseEntity<ErroResposta> semFicha(FichaNaoEncontradaException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ErroResposta.de(HttpStatus.NOT_FOUND.value(), "Sem ficha vigente", ex.getMessage()));
+    }
+
+    /** US-10, criterio 5: inadimplente nao reserva aula. */
+    @ExceptionHandler(AcessoBloqueadoException.class)
+    public ResponseEntity<ErroResposta> acessoBloqueado(AcessoBloqueadoException ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(ErroResposta.de(HttpStatus.FORBIDDEN.value(), "Acesso bloqueado", ex.getMessage()));
+    }
+
+    /** US-10, criterio 3: cancelamento exige 2 h de antecedencia. */
+    @ExceptionHandler(CancelamentoForaDoPrazoException.class)
+    public ResponseEntity<ErroResposta> foraDoPrazo(CancelamentoForaDoPrazoException ex) {
+        return ResponseEntity.unprocessableEntity()
+                .body(ErroResposta.de(
+                        HttpStatus.UNPROCESSABLE_ENTITY.value(), "Fora do prazo", ex.getMessage()));
+    }
+
+    @ExceptionHandler({ReservaDuplicadaException.class, SessaoJaFinalizadaException.class})
+    public ResponseEntity<ErroResposta> conflito(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ErroResposta.de(HttpStatus.CONFLICT.value(), "Operacao invalida", ex.getMessage()));
     }
 }
