@@ -78,6 +78,21 @@ public class Aluno {
         this.responsavelCpf = responsavelCpf;
     }
 
+    /** US-09: o bloqueio por inadimplencia muda o status do aluno. */
+    public void bloquearAcesso() {
+        this.status = StatusAluno.INADIMPLENTE;
+    }
+
+    /** US-07, criterio 2: pagamento registrado libera o acesso na hora. */
+    public void liberarAcesso() {
+        this.status = StatusAluno.ATIVO;
+    }
+
+    /** US-02 e US-10: so aluno em dia entra na catraca e reserva aula. */
+    public boolean estaAdimplente() {
+        return status == StatusAluno.ATIVO;
+    }
+
     public boolean isMenorDeIdade(LocalDate hoje) {
         return Period.between(dataNascimento, hoje).getYears() < 18;
     }
