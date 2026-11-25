@@ -37,7 +37,8 @@ O sistema proposto cobre seis módulos:
 | [`docs/backlog.md`](docs/backlog.md) | Matriz de rastreabilidade: US ↔ Issue ↔ label ↔ prioridade |
 | [`docs/project-setup.md`](docs/project-setup.md) | Como o GitHub Project está organizado |
 | [`docs/uml/`](docs/uml) | Diagramas de casos de uso e de classes (SVG + PNG + PDF) e a modelagem |
-| [`academia-api/`](academia-api) | Implementação em camadas da US-01 (Spring Boot) |
+| [`academia-api/`](academia-api) | Implementação em camadas: US-01, US-04, US-05 e US-10 (Spring Boot) |
+| [`docs/prototipo/`](docs/prototipo) | Protótipo no Figma e o mapa tela → história → endpoint |
 | [`docs/issues/`](docs/issues) | Corpo de cada Issue, pronto para publicação |
 | [`scripts/criar-issues.sh`](scripts/criar-issues.sh) | Recria labels e Issues em outro repositório, via GitHub CLI |
 | [`scripts/aplicar-cores-labels.sh`](scripts/aplicar-cores-labels.sh) | Padroniza as cores das labels |
@@ -80,7 +81,8 @@ A prioridade segue MoSCoW: `alta` = *Must have* (sem isso a academia não opera)
 | Diagrama de casos de uso | ✅ [PNG](docs/uml/casos-de-uso.png) · [SVG](docs/uml/casos-de-uso.svg) |
 | Diagrama de classes | ✅ [PNG](docs/uml/classes.png) · [SVG](docs/uml/classes.svg) |
 | PDF da entrega (os dois diagramas) | ✅ [`docs/uml/diagramas-uml.pdf`](docs/uml/diagramas-uml.pdf) |
-| Implementação em camadas (US-01) | ✅ [`academia-api/`](academia-api) — 8 testes passando |
+| Protótipo de interface | ✅ [Figma](https://www.figma.com/design/y5bZomj9VPFv1OgNHj9PMJ/Prot%C3%B3tipo-Sistema-Academia-%E2%80%93-Kau%C3%A3-Azambuja) — 8 telas |
+| Implementação em camadas | ✅ [`academia-api/`](academia-api) — 4 histórias, 47 testes passando |
 
 ## Arquitetura da implementação
 

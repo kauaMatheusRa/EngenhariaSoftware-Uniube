@@ -5,7 +5,11 @@ Prática guiada da Aula 9 (Arquitetura em Camadas e MVC) — Engenharia de Softw
 **Objetivo:** organizar uma funcionalidade do backlog separando responsabilidades, sem
 regra de negócio no Controller.
 
-**User Story implementada:** [US-01 — Cadastro de aluno com plano](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/1).
+**User Stories implementadas:** US-01 (cadastro), US-04 (consultar ficha), US-05 (registrar
+execução do treino) e US-10 (reservar aula coletiva) — as três últimas são exatamente as
+telas do [protótipo](../docs/prototipo/README.md).
+
+A arquitetura em camadas descrita abaixo nasceu com a [US-01](https://github.com/kauaMatheusRa/EngenhariaSoftware-Uniube/issues/1).
 Foi a escolhida por ser a de maior prioridade do backlog e por ter cinco critérios de
 aceitação de naturezas diferentes — formato, unicidade, regra de idade, geração de dado e
 composição de resposta —, o que obriga a distribuir a lógica entre as camadas em vez de
@@ -88,10 +92,19 @@ cadastrados (Mensal, Trimestral, Anual). Console do banco em `/h2-console`.
 
 ## Endpoints
 
-| Método | Rota | O que faz |
-| --- | --- | --- |
-| `POST` | `/alunos` | Cadastra o aluno e cria a matrícula no plano |
-| `GET` | `/alunos/{id}` | Devolve a ficha do aluno |
+| Método | Rota | História | Tela do protótipo |
+| --- | --- | --- | --- |
+| `POST` | `/alunos` | US-01 | — (recepção) |
+| `GET` | `/alunos/{id}` | US-01 | — (recepção) |
+| `GET` | `/alunos/{id}/ficha` | US-04 | 03 · Meu treino |
+| `GET` | `/ficha/exercicios/{id}` | US-04 | 04 · Detalhe do exercício |
+| `POST` | `/sessoes` | US-05 | 05 · Treino em andamento |
+| `POST` | `/sessoes/{id}/execucoes` | US-05 | 05 · marcar exercício |
+| `POST` | `/sessoes/{id}/finalizacao` | US-05 | 06 · Treino concluído |
+| `GET` | `/sessoes/{id}` | US-05 | 05 · progresso |
+| `GET` | `/aulas?dia=AAAA-MM-DD` | US-10 | 07 · Aulas coletivas |
+| `POST` | `/aulas/{id}/reservas` | US-10 | 08 · Reserva confirmada |
+| `DELETE` | `/reservas/{id}` | US-10 | cancelamento |
 
 ### Exemplos verificados
 
@@ -139,38 +152,53 @@ HTTP 422
 ## Testes
 
 ```
-AlunoTest ..................... 9  regra de idade no dominio, sem mock e sem Spring
-AlunoServiceTest .............. 11 caminho feliz, fronteiras e erros (Clock fixo)
+AlunoTest ..................... 9  regra de idade no domínio, sem mock e sem Spring
+AulaColetivaTest .............. 5  fronteira das 2 h do cancelamento, sem mock
+AlunoServiceTest .............. 11 cadastro: feliz, fronteiras e erros (Clock fixo)
+FichaTreinoServiceTest ........ 5  consulta da ficha por divisão (US-04)
+SessaoTreinoServiceTest ....... 6  progresso, carga real e sessão encerrada (US-05)
+AulaColetivaServiceTest ....... 7  vaga, lista de espera, bloqueio e prazo (US-10)
 AlunoControllerTest ...........  3 contrato HTTP, com o service mockado
 AcademiaApiApplicationTests ...  1 as camadas se conectam de verdade
-                                24 testes, 0 falhas
+                                47 testes, 0 falhas
 ```
 
 ```bash
 cd academia-api && mvn test
 ```
 
-Os cenarios foram listados **antes** de escrever qualquer teste, em
+Os cenários da US-01 foram listados **antes** de escrever os testes, em
 [`docs/cenarios-de-teste.md`](../docs/cenarios-de-teste.md), e cada teste segue
-Arrange-Act-Assert explicito.
+Arrange-Act-Assert explícito.
 
-### Dois testes que protegem a arquitetura
+### Testes que protegem a arquitetura
 
-`AlunoControllerTest` verifica com `verify(service, never())` que entrada invalida **nao
+`AlunoControllerTest` verifica com `verify(service, never())` que entrada inválida **não
 chega ao service**. `AlunoServiceTest.cpfDuplicado` verifica que, com CPF repetido, nem o
-plano chega a ser consultado. Se alguem mover a validacao de camada, os testes quebram.
+plano é consultado. `AulaColetivaServiceTest.inadimplenteNaoReserva` verifica que a aula
+nem é buscada quando o aluno está bloqueado. Se alguém mover uma validação de camada, os
+testes quebram.
 
-### Uma refatoracao que veio dos testes
+### Uma refatoração que veio dos testes
 
-Os cenarios de fronteira ("faz 18 anos exatamente hoje", "faz 18 anos amanha") nao eram
-testaveis de forma repetivel: `Aluno.isMenorDeIdade()` lia `LocalDate.now()` por dentro, e
-o resultado dependeria do dia em que a suite rodasse.
+Os cenários de fronteira ("faz 18 anos exatamente hoje", "faz 18 anos amanhã") não eram
+testáveis de forma repetível: `Aluno.isMenorDeIdade()` lia `LocalDate.now()` por dentro, e
+o resultado dependeria do dia em que a suíte rodasse.
 
 | Antes | Depois |
 | --- | --- |
 | `isMenorDeIdade()` | `isMenorDeIdade(LocalDate hoje)` |
 | `AlunoService` chamava `LocalDate.now()` | recebe um `java.time.Clock` injetado |
 
-Em producao o Spring injeta `Clock.systemDefaultZone()` e o comportamento e identico; no
-teste, um `Clock.fixed` deixa as datas sob controle. O dominio tambem deixou de depender do
-relogio do sistema, que e um recurso externo como banco ou rede.
+Em produção o Spring injeta `Clock.systemDefaultZone()`; no teste, um `Clock.fixed` deixa as
+datas sob controle. Os services de sessão e de aulas já nasceram com `Clock` injetado por
+causa dessa lição — é o que torna possível testar a fronteira das 2 h do cancelamento.
+
+## Limitações conhecidas do MVP
+
+| Limitação | Observação |
+| --- | --- |
+| Sem autenticação | A tela 01 do protótipo existe, mas o `alunoId` é informado na requisição |
+| Banco em memória | H2 com `create-drop`: os dados somem ao reiniciar |
+| Sem interface gráfica | O MVP é a API; o protótipo representa a interface pretendida |
+| US-02, 03, 06, 07, 08, 09 | Permanecem no backlog, priorizadas para as próximas iterações |
